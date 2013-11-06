@@ -34,4 +34,14 @@ public class Aequivalenz extends Aussage
     {
         return a1.baum() || a2.baum();
     }
+
+    public Aussage getAussage1()
+    {
+        return a1;
+    }
+
+    public Aussage getAussage2()
+    {
+        return a2;
+    }
 }

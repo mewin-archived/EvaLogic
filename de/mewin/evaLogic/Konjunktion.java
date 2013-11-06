@@ -1,6 +1,7 @@
 package de.mewin.evaLogic;
 
 import de.mewin.evaLogic.util.LogicChars;
+import java.util.Arrays;
 
 /**
  *
@@ -58,5 +59,28 @@ public class Konjunktion extends Aussage
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj != null
+                && obj instanceof Konjunktion
+                && obj.hashCode() == this.hashCode();
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int hash = 7;
+        hash = 89 * hash + Arrays.deepHashCode(this.aussagen);
+        return hash;
+    }
+    
+    
+
+    public Aussage[] getAussagen()
+    {
+        return aussagen;
     }
 }

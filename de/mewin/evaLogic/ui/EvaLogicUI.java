@@ -4,9 +4,9 @@
  */
 package de.mewin.evaLogic.ui;
 
-import de.mewin.evaLogic.Aussage;
 import de.mewin.evaLogic.parser.LogicParser;
 import de.mewin.evaLogic.util.LogicChars;
+import de.mewin.evaLogic.util.Normalizer;
 import de.mewin.evaLogic.util.TableCreator;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
@@ -92,6 +92,7 @@ public class EvaLogicUI
         input.setText(text);
         parser.read(text.toCharArray());
         parser.parse();
+        System.out.println(Normalizer.knf(Normalizer.nnf(parser.getAussage())).toString());
         TableCreator creator = new TableCreator(parser.getAussage(), parser.getEles());
         //creator.setTeilaussagen(parser.getTeilAussagen());
         creator.create();

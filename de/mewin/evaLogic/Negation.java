@@ -1,6 +1,7 @@
 package de.mewin.evaLogic;
 
 import de.mewin.evaLogic.util.LogicChars;
+import java.util.Objects;
 
 /**
  *
@@ -27,9 +28,30 @@ public class Negation extends Aussage
         return LogicChars.NOT + this.aussage.toString();
     }
 
+    public Aussage getAussage()
+    {
+        return aussage;
+    }
+
     @Override
     protected boolean baum()
     {
         return aussage.baum();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj != null
+                && obj instanceof Negation
+                && obj.hashCode() == this.hashCode();
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.aussage);
+        return hash;
     }
 }

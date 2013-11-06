@@ -148,7 +148,7 @@ public class LogicParser
         {
             chr = it.next();
         }
-        while (it.hasNext() || cachedChar != '\u0000')
+        while (it.hasNext() || chr != '\u0000')
         {
             if (chr == '\u0000')
             {
